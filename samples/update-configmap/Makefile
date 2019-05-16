@@ -2,13 +2,13 @@
 
 LAYER_NAME ?= eks-kubectl-layer
 LAYER_DESC ?= eks-kubectl-layer
-S3BUCKET ?= pahud-tmp-nrt
-LAMBDA_REGION ?= ap-northeast-1
-LAMBDA_FUNC_NAME ?= eks-update-configmap
+S3BUCKET ?= aspiration-lambda-kubectl-stg
+LAMBDA_REGION ?= us-west-2
+LAMBDA_FUNC_NAME ?= eks-update-staging
 CLUSTER_NAME ?= default
-LAMBDA_LAYER_KUBECTL_ARN ?= 'arn:aws:lambda:ap-northeast-1:903779448426:layer:layer-eks-kubectl-layer-stack:2'
-LAMBDA_ROLE_ARN ?= 'arn:aws:iam::903779448426:role/LambdaEKSAdminRole'
-NODE_INSTANCE_ROLE_ARN ?= 'arn:aws:iam::903779448426:role/eksdemo-NG-1VR56CLMY375U-NodeInstanceRole-MD9MU16PJ9HQ'
+LAMBDA_LAYER_KUBECTL_ARN ?= 'arn:aws:lambda:us-west-2:332894900161:layer:lambda-layer-kubectl:1'
+LAMBDA_ROLE_ARN ?= 'arn:aws:iam::332894900161:role/service-role/LambdaEKSAdminRole'
+NODE_INSTANCE_ROLE_ARN ?= 'arn:aws:iam::332894900161:role/rancher2-staging-node'
 GLOBAL_REGIONS ?= us-west-2 us-east-1 us-east-2 ap-northeast-1 ap-northeast-2 ap-southeast-1 ap-southeast-2 eu-west-1 eu-central-1
 
 

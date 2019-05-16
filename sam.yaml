@@ -19,14 +19,14 @@ Resources:
       CodeUri: ./func.d
       Runtime: provided
       Layers:
-        - !Sub "arn:aws:lambda:ap-northeast-1:${AWS::AccountId}:layer:layer-eks-kubectl-layer-stack:2"
+        - "arn:aws:lambda:us-west-2:332894900161:layer:lambda-layer-kubectl:1"
       MemorySize: 512
       Environment:
         Variables:
           cluster_name: !Ref ClusterName
       # Policies: 
       #   - AWSLambdaBasicExecutionRole
-      Role: !Sub "arn:aws:iam::${AWS::AccountId}:role/LambdaEKSAdminRole"
+      Role: !Sub "arn:aws:iam::332894900161:role/LambdaEKSAdminRole"
       Timeout: 10
 
 
@@ -43,6 +43,6 @@ Outputs:
       Name: !Sub 'LambdaFuncName-${AWS::StackName}'
   LambdaRoleArn:
     Description: Lambda Role ARN
-    Value: !Sub "arn:aws:iam::${AWS::AccountId}:role/LambdaEKSAdminRole"
+    Value: !Sub "arn:aws:iam::332894900161:role/LambdaEKSAdminRole"
     Export:
       Name: !Sub 'LambdaRoleArn-${AWS::StackName}'

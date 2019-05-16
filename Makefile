@@ -1,14 +1,14 @@
 .PHONY: layer-zip layer-upload layer-publish func-zip create-func update-func layer-all func-all invoke clean
 
-LAYER_NAME ?= eks-kubectl-layer
-LAYER_DESC ?= eks-kubectl-layer
+LAYER_NAME ?= lambda-layer-kubectl
+LAYER_DESC ?= lambda-layer-kubectl
 # INPUT_JSON ?= event.json
-S3BUCKET ?= pahud-tmp-nrt
-LAMBDA_REGION ?= ap-northeast-1
-LAMBDA_FUNC_NAME ?= eks-kubectl
+S3BUCKET = aspiration-lambda-kubectl-stg
+LAMBDA_REGION ?= us-west-2
+LAMBDA_FUNC_NAME ?= lambda-kubectl-staging
 LATEST_LAYER_ARN ?= $(shell aws --region $(LAMBDA_REGION) cloudformation describe-stacks --stack-name "$(LAYER_NAME)-stack" --query 'Stacks[0].Outputs[0].OutputValue'  --output text)
 LATEST_LAYER_VER ?= $(shell echo $(LATEST_LAYER_ARN) | cut -d: -f8)
-LAMBDA_ROLE_ARN ?= arn:aws:iam::903779448426:role/EKSLambdaDrainer
+LAMBDA_ROLE_ARN = arn:aws:iam::332894900161:role/LambdaEKSAdminRole
 CLUSTER_NAME ?= default
 ifdef INPUT_YAML
 INPUT_JSON = event.json
